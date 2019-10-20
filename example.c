@@ -26,10 +26,10 @@ int main(void)
 	node_debug(head);
 	int tmp;
 	for (int i = 1; i <= 20; i++) {
-		tmp = pop(head);
+		tmp = pop(&head);
 		printf("%d\n", tmp);
 	}
 	/*trying to pop an empty list*/
-	pop(head);
+	/*pop(&head);*/
 	return 0;
 }

@@ -4,23 +4,26 @@
 
 #include <stdbool.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 struct node {
 	node_t val;
 	struct node *next;
 };
 
-struct node *make_node(node_t val) {
+struct node *make_node(node_t val)
+{
 	struct node *p = malloc(sizeof(struct node));
 	p->next = NULL;
 	p->val = val;
 	return p;
 }
 
-struct node *get_end(struct node *head) {
+struct node *get_end(struct node *head)
+{
 	struct node *p = head;
 	if (p == NULL) {
-		perror("Cannot get end of empty list!\n");
+		perror("Cannot get end of empty list!");
 		exit(1);
 	} else if (p->next == NULL) {
 		return p;
@@ -49,15 +52,16 @@ void push(struct node *head, node_t val)
 	}
 }
 
-node_t pop(struct node *head)
+node_t pop(struct node **p_head)
 {
+	struct node *head = *p_head;
 	if (head == NULL) {
-		perror("Cannot pop empty list!\n");
+		perror("Cannot pop empty list!");
 		exit(1);
 	} else if (head->next == NULL) {
 		node_t val = head->val;
 		free(head);
-		head = NULL;
+		*p_head = NULL;
 		return val;
 	} else {
 		struct node *p = head;
