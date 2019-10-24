@@ -1,3 +1,6 @@
+#ifndef _NODE
+#define _NODE
+
 #ifndef node_t
 #define node_t int
 #endif
@@ -74,4 +77,30 @@ node_t pop(struct node **p_head)
 	}
 }
 
+struct node *get_node(struct node *head, int index)
+{
+    struct node *p = head;
+    while (index > 0) {
+        if (p == NULL)
+            return NULL;
+        else
+            p = p->next;
+    }
+    return p;
+}
 
+bool insert(struct node *head, int index, node_t val)
+{
+    struct node *p = get_node(head, index);
+    if (p == NULL) {
+        return true;
+    } else {
+        struct node *q = p->next;
+        struct node *n = malloc(sizeof(struct node));
+        n->val = val;
+        n->next = q;
+        p->next = n;
+        return false;
+    }
+}
+#endif
