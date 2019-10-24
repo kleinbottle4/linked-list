@@ -11,10 +11,12 @@ int main(void)
         push(list, i);
     
     print_all(list);
-    if ((insert(list, 0, 100)) == true)
+    if ((insert(&list, 0, 100)) == true)
         puts("error");
     else
         puts("success");
+
+    print_all(list);
 
     return 0;
 }

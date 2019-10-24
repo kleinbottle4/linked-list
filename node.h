@@ -19,7 +19,7 @@ struct node *get_end(struct node *);
 void push(struct node *, node_t);
 node_t pop(struct node **);
 struct node *get_node(struct node *, int);
-bool insert(struct node *, int, node_t);
+bool insert(struct node **, int, node_t);
 
 struct node *make_node(node_t val)
 {
@@ -96,18 +96,27 @@ struct node *get_node(struct node *head, int index)
     return p;
 }
 
-bool insert(struct node *head, int index, node_t val)
+bool insert(struct node **p_head, int index, node_t val)
 {
-    struct node *p = get_node(head, index);
-    if (p == NULL) {
-        return true;
+    if (index == 0) {
+	struct node *n = malloc(sizeof(struct node));
+	n->next = *p_head;
+	n->val = val;
+	*p_head = n;
+	return false;
     } else {
-        struct node *q = p->next;
-        struct node *n = malloc(sizeof(struct node));
-        n->val = val;
-        n->next = q;
-        p->next = n;
-        return false;
+	struct node *p = get_node(*p_head, index - 1);
+	if (p == NULL) {
+	    return true;
+	} else {
+	    struct node *q = p->next;
+	    struct node *n = malloc(sizeof(struct node));
+	    n->val = val;
+	    n->next = q;
+	    p->next = n;
+	    return false;
+	}
     }
 }
+
 #endif
