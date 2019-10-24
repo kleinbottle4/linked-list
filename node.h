@@ -14,6 +14,13 @@ struct node {
 	struct node *next;
 };
 
+struct node *make_node(node_t);
+struct node *get_end(struct node *);
+void push(struct node *, node_t);
+node_t pop(struct node **);
+struct node *get_node(struct node *, int);
+bool insert(struct node *, int, node_t);
+
 struct node *make_node(node_t val)
 {
 	struct node *p = malloc(sizeof(struct node));
