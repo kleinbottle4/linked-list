@@ -1,11 +1,16 @@
+/*
+ * Copyright 2019 Syed Shah
+ * GPL v3 - See the LICENSE file at the root of this project tree
+ */
+
 #include <stdio.h>
 #include "node.h"
 
 void node_sizes(void)
 {
 	printf("Size of node struct: %d bytes\n", sizeof(struct node));
-	printf("Size of node_t: %d bytes\n", sizeof(node_t));
-	printf("Size of node_t ptr: %d bytes\n", sizeof(node_t*));
+	printf("Size of NODE_T: %d bytes\n",      sizeof(NODE_T));
+	printf("Size of NODE_T ptr: %d bytes\n",  sizeof(NODE_T*));
 }
 
 void node_debug(struct node *head)
@@ -19,17 +24,18 @@ void node_debug(struct node *head)
 
 int main(void)
 {
-	struct node *head = make_node(1);
+	struct node *head = list_new(1);
 	for (int i = 2; i <= 20; i++) {
-	       push(head, i);
+	       list_push(head, i);
 	}
 	node_debug(head);
 	int tmp;
+    bool err_flag;
 	for (int i = 1; i <= 20; i++) {
-		tmp = pop(&head);
+		tmp = list_pop(&head, &err_flag);
 		printf("%d\n", tmp);
 	}
 	/*trying to pop an empty list*/
-	/*pop(&head);*/
+	/*list_pop(&head);*/
 	return 0;
 }
