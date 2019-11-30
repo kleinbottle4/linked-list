@@ -16,8 +16,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#ifndef _NODE
-#define _NODE
+#ifndef _LIST
+#define _LIST
 
 #ifndef NODE_T
 #define NODE_T int
@@ -31,10 +31,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#ifndef _NODE
 struct node {
 	NODE_T val;
 	struct node *next;
 };
+#define _NODE
+#endif
 
 struct node *list_new     (NODE_T);
 struct node *list_get_end (struct node *);
