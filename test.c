@@ -25,7 +25,7 @@ int main(void)
         puts("success");
 
     print_info(list);
-    list_destroy(&list);
+    list_destroy(list);
     return 0;
 }
 

@@ -43,6 +43,7 @@ void         list_push    (struct node *,  NODE_T);
 NODE_T       list_pop     (struct node **, bool *);
 bool         list_insert  (struct node **, int, NODE_T);
 bool         list_remove  (struct node **, int   );
+void         list_destroy (struct node *);
 
 struct node *list_new(NODE_T val)
 {
@@ -165,11 +166,11 @@ bool list_remove(struct node **p_head, int index)
     }
 }
 
-void list_destroy(struct node **p_list)
+void list_destroy(struct node *list)
 {
-    if ((*p_list)->next)
-        list_destroy(&((*p_list)->next));
-    free(*p_list);
+    if (list->next)
+        list_destroy(list->next);
+    free(list);
 }
 
 #endif
