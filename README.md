@@ -1,5 +1,5 @@
 # linked-list
-A singley-linked list header file written in C.
+A singly-linked list header file written in C.
 
 See the LICENSE file at the root of this project tree.
 
