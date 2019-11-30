@@ -165,4 +165,11 @@ bool list_remove(struct node **p_head, int index)
     }
 }
 
+void list_destroy(struct node **p_list)
+{
+    if ((*p_list)->next)
+        list_destroy(&((*p_list)->next));
+    free(*p_list);
+}
+
 #endif

@@ -1,4 +1,21 @@
 # linked-list
-A linked list header file written in C.
-The goal is to make a reliable singley-linked list which can push, pop, insert, remove, get and set.
-Currently, only push and pop have been made.
+A singley-linked list header file written in C.
+
+See the LICENSE file at the root of this project tree.
+
+Here is a summary of the license:
+
+Copyright (C) 2019 Syed Shah
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
